@@ -1,0 +1,97 @@
+Data Structure and Algorithm Analysis
+COP3530--Fall2015
+Assignment #3
+Total Points: 100
+Due Date:  9/11/2015 at 11:00PM
+NO LATE ASSIGNMENTS WILL BE ACCEPTED!!
+________________________________________
+Objectives:
+This assignment will access your skills using C++ strings and dynamic arrays. After completing this assignment you will be able to do the following:
+(1) allocate memory dynamically (2) implement a default and copy constructor,  (3) insert and remove an item from a sorted dynamic array of strings, (4) use the string class member functions, and (5) implement a destructor
+________________________________________
+Assignment Description:
+Call your driver "dynamic_array_driver.cpp", and your class implementation file "TLIST.cpp". Define the following behavior for TLIST
+Implement a default constructor which initializes the state to the following: count = 0, capacity = //2, and allocates memory the size of string[capacity].  Read the contents of the file “myData.txt”.  The contents of the files is given below.
+1.	Include the following message, "Default Constructor Invoked" every time the function is called. The constructor, will open and read the data file, myData.txt, into the dynamic array, DB.  DB will have an initial size of 2. When DB becomes full, DoubleSize is called and the capacity will be doubled, and a data item inserted, inorder (sorted).  Remember, items are inserted, inorder, one-by-one.
+2.	Implement a copy constructor to perform a deep copy of a TLIST object. Include the following message, "Copy  Constructor Invoked" every time the function is called. The function should also print the contents of each TLIST object on single separate lines.
+3.	Implement the destructor.  Include the following message, "Destructor Invoked" every time the function is called.
+4.	Implement Is_Full() which returns true if full; otherwise false;  the message "Is_Full Invoked” is printed every time the function is called
+5.	 Implement Is_Empty() which returns true if empty; otherwise false; include the message, "Is_Empty Invoked” every time the function is called.
+6.	Implement the member function called "Search" to search the dynamic array for an item. The function should print the message, “Item Found” or “Item Not Found”.  Which message is print depends on if the item was found or not found in the list.  Print the item (search key) you were looking for.   Include the following message, "Search Invoked" every time the function is called.
+7.	Implement a function called "Insert" to add an item to the dynamic array, inorder. The function should print the contents of the TLIST object before and after the function has been executed on single separate lines.  Include the following message, "Insert Invoked" every time the function is called. If DB is full, DoubleSize should be invoked and the item added.
+8.	Implement a function called "Remove" to remove an item from the dynamic array. The function should print the contents of the TLIST object before and after the function has been executed on single separate lines.  Include the following message, "Remove Invoked" every time the function is invoked.
+9.	Implement a function called “SubstringCount” that returns an integer representing the number of times a substring occurs inside a string (an item in the array). For example, “ab” occurs 4 times in the string “abcdeabaeeeabrxreab”.
+10.	Implement a function called “SubstringInsert” that inserts a copy of a substring into a string (current object’s string) at a specified position.
+11.	Implement a function called “SubstringRemove” that removes copies of a substring from a string (the current object’s string). For example, if the substring “ab” were removed from the string “abcdeababeeeabrxre” the string “cdeeeerxre” would remain in the original (current object’s) string.
+12.	Implement a function called “DoubleSize” to double the capacity of the (current object’s) dynamic array.
+
+
+
+
+
+
+Your program should COMPLETELY TEST ALL the operations of the class.  For this assignment, put the class declaration in the implementation file "tlist.h" and the implementation file in “tlist.cpp”.  Use the class declaration below to help you implement the class TLIST.
+_____________________________________________________________________________________
+Class Declaration: 
+class TLIST
+
+{
+
+public:
+
+//TLIST();                //default constructor sets the following: count = 0, capacity = //2, and allocates memory the size of string[capacity]
+
+//TLIST(const TLIST  &);  //copy constructor
+
+//~TLIST();               //destructor
+
+//bool IsEmpty();         //return true if empty; otherwise false
+
+//bool IsFull();         //return true if full; otherwise false
+
+//int Search(const string &); //returns the location of the string in the dynamic array
+
+//void Insert(const string & key); //add key to dynamic array if not full; otherwise //invoke DoubleSize and add item. 
+
+//void Remove(const string & key); //removes key from dynamic array if it is there; //otherwise prints a message stating it was not in dynamic array
+
+//int SubstringCount(const int loc, const string & substring);//loc is the location of //the string in the array and substring is the string you are counting
+	
+//void SubstringRemove(const int loc, const string & substring);//loc is the location, index/subscript, of //the string in the array DB and substring is the to be removed.
+
+//void SubstringInsert(const int loc, const int pos, const string &substring); //loc is //the index/subscript of the string in DB.  This is the string to be modified; pos is the //starting location of where the substring should be placed. If loc is 0 or 1, the //substring is inserted just before the first character in the string; if loc is 2 or //greater but less than or equal to the length of string minus 1, then the substring is //inserted just before the character occupying loc; substring is the string to be //inserted.
+
+//void DoubleSize();//doubles the capacity of the array, copies the contains of the old //array, and de-allocates the old array's memory
+
+//friend ostream & operator<<(ostream & out, const TLIST & Org);// print the contents of //the dynamic array
+
+//other functions may be implemented if necessary
+
+private:
+
+// string *DB;  //dynamic array
+
+//int count;  //number of strings stored in the dynamic array
+
+//int capacity;  //total number of cells in the dynamic array
+
+//additonal state variables you may wish add
+
+};
+
+_____________________________________________________________________________________
+Contents for the file “myData.txt”:
+defghiiijjjiiijj
+ab
+stringtrist
+abczzzabcabc
+cdeerxre
+abcdeabaeeeabrxre
+cveevcyxq
+pppppeeeeeppppp
+kjhlfgdsaw
+fertyxcwt
+
+__________________________________________________________________
+For this assignment, put the class declaration in the implementation file "tlist.h" and the implementation file in “tlist.cpp”. Called the driver “dynamic_array_driver.cpp”. Put all files (tlist.h, tilist.cpp, and dynamic_array_driver.cpp) in a zip file called “asgn3”, and submit to Blackboard before the due date and time in the Assignments area. 
+
