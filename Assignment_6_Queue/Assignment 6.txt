@@ -1,0 +1,85 @@
+Data Structure---COP3530---Summer 2015
+Assignment #5 (BQUEUE) – Chapter 8
+
+Total Points: 100
+
+Due Date and Time: 10/16/2015, at 11PM
+
+Objective:
+
+After completing this assignment you will be able to do the following:
+
+(1) manipulate pointers, (2) allocate memory dynamically, (3) implement a default constructor, copy constructor and destructor, (4) use only one pointer to add to the back and to dequeue from the front of the queue.
+
+Assignment Description:
+You will implement a doubly-linked circular queue of integers.
+
+Consider the following class declarations when implementing BQUEUE.  As always, you must comment your declaration and implementation files, "bqueue.h" and "bqueue.cpp", respectively.
+
+class bqnode
+{
+    public:
+        int time;
+        bqnode *prev, *next;
+};
+
+class BQUEUE
+{
+    public:
+        BQUEUE( );
+        ~BQUEUE( );
+       BQUEUE(const BQUEUE &);
+       void Enqueue(int);
+       void Dequeue( );
+       void Print( );
+   private:
+       bqnode *back;
+};
+Use the following driver called "bqueue_driver.cpp" to test your code:
+
+#inlcude <iostream>
+#include "bqueue.h"
+
+using namespace std;
+
+int main( )
+{
+    BQUEUE  k;
+
+    k.Enqueue(60);
+    k.Print();
+    k.Enqueue(20);
+    k.Enqueue(30);
+    k.Print();
+    k.Enqueue(10);
+    k.Print();
+    k.Enqueue(50);
+    k.Enqueue(40);
+    k.Print();
+
+    BQUEUE j = k;
+
+    j.Dequeue();
+    j.Print();
+    j.Dequeue();
+    j.Dequeue();
+    j.Dequeue();
+    j.Print();
+    j.Dequeue();
+    j.Dequeue();
+    j.Print();
+    j.Dequeue();
+    j.Dequeue();
+
+    return 0;
+}
+
+ 
+Good luck...
+
+Submission of Assignment:
+ Submit the header file "bqueue.h", "bqueue.cpp", and "bqueue_driver.cpp" in a zip file to blackboard before the due date and time .
+
+ 
+
+ 

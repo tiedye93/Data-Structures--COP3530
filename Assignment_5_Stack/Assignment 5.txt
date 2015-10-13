@@ -1,0 +1,28 @@
+COP 3530 Data Structures Fall 2015 - - - - - - -Assignment 5
+
+Total Points: 100 points
+
+ 
+Due Date and time: Friday, October 9, 2015 at 11:30PM
+
+NO LATE ASSIGNMENTS WILL BE ACCEPTED!
+
+ 
+In this assignment you will write a program called "infix.cpp", that uses a stack, implemented as a singly-linked list, to convert a postfix expression to the corresponding fully-parenthesized infix expression.  Consider the following examples:
+
+the postfix expression a b + c d - * will be converted to the infix ((a + b) * (c - d))
+the the postfix expression a b + will be converted to the infix (a + b)
+the postfix expression a b / c d / / will be converted to infix ((a / b) / (c / d))
+for the postfix expression  a b / c * +  the program should print the error message "too many operators and not enough operand".
+for the postfix expression  a b c d / + e * f   the program should print the error message "too many operands and not enough operators".
+Notes:  1. Include one space between operands ( eg. a b c d  ) and operator (eg. + - * /) in your input to the program.
+
+             2.  The only operators to consider are +, -, * and /.
+
+Your program should ask the user for a postfix expression as input, and it should output the corresponding fully-parenthesized infix expression. The program should also ask the user if he/she would like to do another conversion.  If so, the user should be able to enter another posfix expression; otherwise the program should terminate. Also, the stack must be implemented using a singly-linked list.  Your driver, infix.cpp, should include the definition and declaration files for the class STACK, stack.cpp and stack.h, respectively.
+
+Your program should do error-checking.  For example, if the infix expression is invalid (empty, too many operands, etc…), your program should print an error message stating so.
+
+You should submit infix.cpp, stack.cpp, and stack.h. in a zip file called "assignment5" to Blackboard before the due date and time.
+
+Good Luck....
