@@ -1,0 +1,120 @@
+COP 3530 Data Structures Fall 2015 ---- Assignment 7
+
+Hashing & BST
+
+Total Points: 100 points
+
+ 
+
+Due Date: 11/23/2015 at 10:00PM
+NO LATE ASSIGNMENTS WILL BE ACCEPTED!
+
+Name the program for this assignment "hashing_BST.cpp." The purpose of this program is to give you experience implementing a hash table, handling collisions, and using hashing with a linear function. Hashing is a method that enables access to table items (for adding, deleting, searching and so forth) in time that is relatively constant and independent of the items in the table. When we searched lists, implemented using linked lists and arrays, the time required to determine if an item was in the list, in the worst case, was proportional to the number of items in the list. Hashing uses a hash function to determine the location of an item.  A problem with hashing occurs when the hash function returns the same value for two or more items (a hash function is a function that maps the search key of a table item into a location that will contain that item).  The situation is referred to as a collision. A collision occurs when a hash function maps two or more distinct search keys into the same location.
+
+In this assignment you will write a program that maintains the names (first and last names), addresses and phone numbers in an address book by using a hash table. Use the data file called "client_address_data.txt" to help you create the hash table.  Also, you should be able to enter, delete, modify (names, addresses and phone numbers), or search the data stored in hash table based on the name. A client’s first and last names should be the search key. Once the program is finish execution, the information should be ordered by last name and first name and printed to a file called "sorted_client_address_bk.txt."
+
+Design a class to represent the hash table. Call this class "Client_Address_Book". "Client_Address_Book" contains all the information for each client (first name, last name, address, and phone number).  Use a linear function (eg. h(last name)=[ascii char value of first letter of lastname]-64) to determine the location of a key in the hash table Each cell in the hash table will be a BST.  For example, you will have a BST for last names that begin with 'A', there will be one for last names that begin with 'B', and so forth.  The BST will also be used to handle collisions (clients with the same name) within "Client_Address_Book".  Each BST will maintain the address book in alphabetical order.
+When the clients address book is printed, the list of all the clients’ information stored in the hash table should be printed in order according to the last and first names.  The information should be printed out in the following order: last name, first name, address, and phone number.  Also, include column titiles.
+
+Declare and implement the following classes: BST_Node, Clients_Info_BST, and Clients_Address_Book.  Store the declaration and implement files in one file call hashing_BST.cpp. You should submit hashing_BST.cpp to blackboard before due date and time.
+ 
+ 
+ 
+Good Luck.... " .
+Consider the following skeleton as a hint to help you:
+
+#include <iostream>
+#include <string>
+using namespace std;
+ 
+class BST_Node  //node in a BST
+{
+  public:
+    string lastname, firstname, address, phone_number;
+    BST_Node  *lchild, *rchild;   //left and right children pointers
+};
+ 
+class Clients_Info_BST //Binary Search Tree
+{
+   public:
+            Clients_Info_BST(){};//store the data in the hash table
+           //Clients_Info_BST(const Clients_Info_BST &);//Copy Constructor
+            ~Clients_Info_BST(){};//Destructor           
+           //void Insert(const string & s){cout<<"   Inside Client_Info_BST Insert\n";};
+           //  void Remove(const string & s){cout<<"   Inside Client_Info_BST Remove\n";};
+           //  void Update(const string & s){cout<<"   Inside Client_Info_BST Update\n";};
+           //  void Print( ){cout<<"   Inside Client_Info_BST Print\n";};
+           //  BST_Node * Search(const string & s){cout<<"   Inside Client_Info_BST Search\n"; return 0;};
+            
+//other member functions you may need.
+    private:
+       BST_Node *front; //---state information
+};
+class Client_Address_Book
+
+{
+    public:
+            Client_Address_Book(){};//default constructor will read data from input file "client_address_data.txt".
+            //Client_Address_Book(const Client_Address_Book &);//Copy Constructor
+            //~Client_Address_Book();//Destructor
+            // void Insert(const string & s);// insert record
+            // void Remove(const string & s);//remove record
+           //  void Update(const string & s);//update record
+            // void Print_BST(const string & s);//ornt
+            // void Print_Hash_Table(){"Inside Client_Address_Book Print_Hash_Table\n";};
+            // void Print_Hash_Table_to_File(const string & filename);///function will print hash table to output file                                                                                                                                                                                
+            // BST_Node * Search(const string & s){"Inside Client_Address_Book Search\n"; return 0;};
+            // unsigned int Hash_Function(const string & s);
+ 
+     // Hint:  Remember that the insert, remove and search function for Clients_Address_Book will use //     
+    //Client_Info_BST’s insert, remove and search respectively.
+    
+  private:
+      int capacity;  //SET THIS VALUE EQUAL TO 27  YOUR DEFAULT CONSTRUCTOR
+     Clients_Info_BST   *hash_table; // USING 1 THROUGH 26 or whatever you like
+};
+int main()
+
+{
+
+            Client_Address_Book My_Book;
+            //My_Book.Insert("Bullard Lofton 777 Glades Road 207-2780");
+            //My_Book.Remove("Bullard Lofton");
+ 
+/*******************************************************************************
+
+Notes for Update Function:
+
+ 
+     1.  My_Book_Update(“1 James Clark Lofton Bullard 777 Glades Run 527-6623”);
+            If first character is a 1, this means all three fields will be changed.
+      2.   My_Book_Update(“2 James Clark Lofton Bullard 777 Glades Run”);
+            If first character is a 2, this means the Name and Address fields will be changed.
+      3.   My_Book_Update(“3 James Clark 777 Glades Run 555-6666”);
+            If first character is a 3, this means the Address and Phone Number fields will be changed.
+      4.   My_Book_Update(“4 James Clark Lofton Bullard 555-6666”);
+            If first character is a 4, this means the Name and Phone Number fields will be changed.
+      5.   My_Book_Update(“5 James Clark Lofton Bullard”);
+            If first character is a 5, this means the Name field will be changed.
+      6.   My_Book_Update(“6 James Clark 777 Glades Run”);
+            If first character is a 6, this means the Address field will be changed.
+      7.   My_Book_Update(“7 James Clark 555-6666”);
+            If first character is a 7, this means the Phone Number field will be changed.
+ 
+********************************************************************************/
+            //My_Book.Update("1 Bullard Lofton  Comb Harry 555 Palmetto Park Road 555-3444");
+            //My_Book.Print_BST("B");
+            //My_Book.Print_Hash_Table();
+ 
+            //Client_Address_Book Your_Book = My_Book; //Invoke the copy constructor
+            //Your_Book.Print_Hash_Table_to_File(/* the output filename goes here*/);
+            return 0;
+}  
+
+ 
+
+ 
+
+ 
+
+ 
